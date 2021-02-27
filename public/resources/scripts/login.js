@@ -1,5 +1,4 @@
 
-alert("gay");
 window.onload = function() {
     const firebaseConfig = {
         apiKey: "AIzaSyCoE1IX59LpgjMvLlmEpydUZZpc1X0Pum0",
@@ -30,8 +29,36 @@ btnLogin.addEventListener('click', e => {
 
     //Sign in
     const promise = auth.signInWithEmailAndPassword(email, pass);
+    promise.catch(e => alert("you do not have an account\nplease use the sign up button"));
+
+});
+
+btnSignUp.addEventListener('click', e =>{
+    //Get email and pass
+    //TODO: Check 4 real email
+    const email = txtEmail.value;
+    const pass = txtPassword.value;
+    const auth = firebase.auth();
+
+    //Sign in
+    const promise = auth.createUserWithEmailAndPassword(email, pass);
+
     promise.catch(e => console.log(e.message));
+});
 
-})
+btnLogout.addEventListener('click', e =>{
+    firebase.auth().signOut();
+});
 
+firebase.auth().onAuthStateChanged(firebaseUser => {
+    if(firebaseUser){
+        console.log(firebaseUser);
+        console.log('logged in');
+        btnLogout.classList.remove('hide');
+    }
+    else{
+        console.log('not logged in');
+        btnLogout.classList.add('hide');
+    }
+});
 };
