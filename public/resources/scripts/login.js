@@ -46,19 +46,14 @@ btnSignUp.addEventListener('click', e =>{
     promise.catch(e => console.log(e.message));
 });
 
-btnLogout.addEventListener('click', e =>{
-    firebase.auth().signOut();
-});
-
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if(firebaseUser){
         console.log(firebaseUser);
         console.log('logged in');
-        btnLogout.classList.remove('hide');
+        window.location.replace('index.html')
     }
     else{
         console.log('not logged in');
-        btnLogout.classList.add('hide');
     }
 });
 };
