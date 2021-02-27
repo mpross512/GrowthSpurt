@@ -53,3 +53,4 @@ const firebaseConfig = {
 const firebase = require('firebase')
 require('firebase/auth')
 require('firebase/firestore')
+firebase.initializeApp(firebaseConfig);

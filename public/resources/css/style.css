@@ -1,0 +1,19 @@
+body {
+    background-color: #D8F1A0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+    background-color: #F3C178;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar a {
+    color: aliceblue;
+    padding: 14px 16px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 42px;
+    color: #00A878;
+}
