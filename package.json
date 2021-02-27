@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/mpross512/GrowthSpurt#readme",
   "dependencies": {
-    "firebase": "^8.2.9"
+    "firebase": "^8.2.9",
+    "jquery": "^3.5.1",
+    "jsdom": "^16.4.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
