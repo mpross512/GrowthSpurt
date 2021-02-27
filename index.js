@@ -2,6 +2,9 @@ const http = require('http');
 const fs = require('fs');
 const url = require('url');
 const path = require('path');
+const dom = require('jsdom');
+//const $ = (require('jquery'))(dom.window);
+//window.jQuery = window.$ = $;
 
 const server = http.createServer((req, res) => {
 
@@ -39,17 +42,3 @@ const server = http.createServer((req, res) => {
 
 server.listen(process.env.PORT || 3000);
 
-const firebaseConfig = {
-    apiKey: "AIzaSyCoE1IX59LpgjMvLlmEpydUZZpc1X0Pum0",
-    authDomain: "growth-spurt-6964f.firebaseapp.com",
-    databaseURL: "https://growth-spurt-6964f-default-rtdb.firebaseio.com",
-    projectId: "growth-spurt-6964f",
-    storageBucket: "growth-spurt-6964f.appspot.com",
-    messagingSenderId: "554230997796",
-    appId: "1:554230997796:web:7fb9e3d67f79dba946c9b1",
-    measurementId: "G-QG489YRBPY"
-};
-
-const firebase = require('firebase')
-require('firebase/auth')
-require('firebase/firestore')
