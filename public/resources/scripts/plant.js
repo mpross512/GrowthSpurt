@@ -64,10 +64,10 @@ $(function() {
 
         goal = {
             name: $("#goal-name").val(),
-            unit: $("#goal-unit").val(), 
-            frequency: "week", 
-            current: 0, 
-            target: parseInt($("#goal-amount").val())
+            unit: $("#units").val(), 
+            frequency: $("#frequency").val(), 
+            progress: 0, 
+            target: parseInt($("#target").val()),
         }
 
         userRef.update({
@@ -77,13 +77,20 @@ $(function() {
         loadGoals(goal, $("#current-goals").length + 1)
 
     });
+    
+    $("#btnUpdate").click(function() {
+        console.log("test");
+    });
 
 });
+
 
 
 function loadGoals(goal, index) {
     $("#current-goals").append(`<div id=${index}></div>`);
     $(`#${index}`).append(`<h3>${goal.name}</h3>`)
     $(`#${index}`).append(`<h3>Target: ${goal.target} ${goal.unit} ${goal.frequency}</h3>`)
-
+    $(`#${index}`).append(`<h3>Current Progress: ${goal.progress} ${goal.unit} </h3> 
+    <progress id="goal-progress-bar" value=${goal.progress} max=${goal.target}></progress> 
+    <button id = "btnUpdate" name="btnUpdate"> Update </button>`)
 }
