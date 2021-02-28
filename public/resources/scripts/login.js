@@ -1,19 +1,5 @@
 
 window.onload = function() {
-    const firebaseConfig = {
-        apiKey: "AIzaSyCoE1IX59LpgjMvLlmEpydUZZpc1X0Pum0",
-        authDomain: "growth-spurt-6964f.firebaseapp.com",
-        databaseURL: "https://growth-spurt-6964f-default-rtdb.firebaseio.com",
-        projectId: "growth-spurt-6964f",
-        storageBucket: "growth-spurt-6964f.appspot.com",
-        messagingSenderId: "554230997796",
-        appId: "1:554230997796:web:7fb9e3d67f79dba946c9b1",
-        measurementId: "G-QG489YRBPY"
-    };
-    
-    firebase.initializeApp(firebaseConfig);
-    var db = firebase.firestore();
-    
 
 //Get elements
 const loginDiv = document.getElementById('login');
@@ -34,7 +20,6 @@ btnLogin.addEventListener('click', e => {
     //Get email and pass
     const email = loginEmail.value;
     const pass = loginPassword.value;
-    const auth = firebase.auth();
 
     //Sign in
     const promise = auth.signInWithEmailAndPassword(email, pass);
@@ -48,7 +33,6 @@ btnSignUp.addEventListener('click', e =>{
     name = txtName.value;
     const email = txtEmail.value;
     const pass = txtPassword.value;
-    const auth = firebase.auth();
     newUser = true;
 
     //Sign in
@@ -69,7 +53,7 @@ btnSignUpPage.addEventListener('click', e => {
     signupDiv.classList.remove("hide");
 });
 
-firebase.auth().onAuthStateChanged(firebaseUser => {
+auth.onAuthStateChanged(firebaseUser => {
     if(firebaseUser){
         console.log(firebaseUser);
         console.log(`logged in ${newUser}`);
@@ -88,6 +72,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                 console.error("Error writing document: ", error);
             });
         } else {
+            window.location.replace('index.html')
         }
     }
     else{

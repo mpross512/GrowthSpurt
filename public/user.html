@@ -7,49 +7,10 @@
 
     <body>
         
-        <h1>
-            Growth Spurt!
-        </h1>
-        
-         <button id="btnAddGoal">
-            New Goal
-        </button>
-
-        <div id="goalModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>  
-                    <div>
-                        <label>Goal Type:</label>
-                        <select name="goalType" id="">
-                            <option value="food">Food</option>
-                            <option value="beverage">Beverage</option>
-                            <option value="sleep">Sleep</option>
-                        </select>
-                        <label>Amount:</label>
-                        <input name="goalAmount" type="number">
-                        <label>Unit:</label>
-                        <select name="goalUnit" id="">
-                            <option value="servings">servings</option>
-                            <option value="ounces">oz</option>
-                            <option value="hours">hrs</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label>Title:</label>
-                        <input name="goalTitle" type="text">
-                        <label>More Detail:</label>
-                        <textarea></textarea>
-                    </div>
-
-                    <div>
-                        <button id="btnSaveGoal">
-                         Save
-                         </button>
-                    </div>
-                    
-                </p>
-            </div>
+        <div class="navbar">
+            <a href = "index.html" style="float: left;">Home</a>
+            <a href = "goals.html" style="float: left;">Goals</a>
+            <a id="user" href = "user.html" style="float: right;"></a>
         </div>
 
         <div class="container">
@@ -62,7 +23,7 @@
         <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
-
+        <script src="resources/scripts/userHandler.js"></script>
         <script src="resources/scripts/user.js"></script>
     </body>
 </html>
