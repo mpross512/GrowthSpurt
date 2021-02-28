@@ -17,14 +17,13 @@ $(function() {
                 if(doc.exists) {
                     profile = doc.data();
                     $("#current-goals").empty();
-                    if(profile.goals) {
-                        profile.goals.forEach(loadGoals)
-                    }
+                    profile.goals.forEach(loadGoals)
+                    console.log(profile.name, " is logged in")
                     $(".page").hide();
                     $("#navbar").show();
                     $("#user-button").text(profile.name);
-                    $("#streak").text("Leaves: " + profile.leaves);
-                    $(".plantImage img").attr("src", `resources/images/${profile.leaves}leaves${profile.perfectWeek ? "" : "Brown"}.png`);
+                    $("#streak").text("Leaves: " + profile.streak);
+                    $(".plantImage img").attr("src", `resources/images/${profile.streak}leaves${profile.perfectWeek ? "" : "Brown"}.png`);
                     $("#remaining").text(`Days until next leaf: ${(profile.perfectWeek ? 8 : 15) - (new Date().getDay() == 0 ? 7 : new Date.getDay()) }`);
                     $("#plant-page").show();
                 }
@@ -103,12 +102,14 @@ $(function() {
         var input = document.createElement("input")
         input.type='number';
         input.id = 'addition'
+        input.min = 1;
+        input.max = 69;
         input.classList.add('hide');
         var confirm = document.createElement("BUTTON");
         confirm.innerHTML="Confirm";
         confirm.classList.add('hide');
 
-        $(`#${index}`).append(button, input, confirm);
+        $(`#${index}`).append(`<br></br>`, button, input, confirm);
 
         button.addEventListener('click', e=>{
             input.classList.remove('hide');
@@ -121,14 +122,13 @@ $(function() {
             console.log(add);
             input.classList.add('hide');
             confirm.classList.add('hide');
-            //$(`#${index}`).eq(3).replaceWith(`<div> <h3>Current Progress: ${add} ${goal.unit} </h3> 
-            //<progress id="goal-progress-bar" value=${add} max=${goal.target}></progress> </div>`);
+            
             $(`#${index}`).empty();
             $(`#${index}`).append(`<h3>${goal.name}</h3>`);
             $(`#${index}`).append(`<h3>Target: ${goal.target} ${goal.unit} ${goal.frequency}</h3>`);
             $(`#${index}`).append(`<h3 id="progressid">Current Progress: ${add} ${goal.unit} </h3> 
             <progress id="goal-progress-bar" value=${add} max=${goal.target}></progress>`);
-            $(`#${index}`).append(button, input, confirm);
+            $(`#${index}`).append(`<br></br>`, button, input, confirm);
             userRef.get().then((doc) => {
                 var goals = doc.data().goals;
                 goals[index].progress = add;
