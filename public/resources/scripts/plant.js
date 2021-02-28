@@ -1,4 +1,7 @@
+$(".page").hide();
+
 $(function() {
+
 
     var profile;
 
@@ -16,11 +19,12 @@ $(function() {
                     $("#current-goals").empty();
                     profile.goals.forEach(loadGoals)
                     $(".page").hide();
-                    $("#plant-page").show();
                     $("#navbar").show();
                     $("#user-button").text(profile.name);
-                    $("#streak").text("Streak: " + profile.streak);
+                    $("#streak").text("Leaves: " + profile.streak);
+                    $(".plantImage img").attr("src", `resources/images/${profile.streak}leaves.png`);
                     $("#remaining").text("Days until next leaf: " + Math.round(7 - (new Date().getTime() - new Date(profile.streakStart).getTime()) / (1000 * 3600 * 24)));
+                    $("#plant-page").show();
                 }
             });
         }
