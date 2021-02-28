@@ -101,7 +101,8 @@ $(function() {
         var input = document.createElement("input")
         input.type='number';
         input.id = 'addition'
-        input.min = 1;
+        input.defaultValue = 0;
+        input.min = 0;
         input.max = 69;
         input.classList.add('hide');
         var confirm = document.createElement("BUTTON");
