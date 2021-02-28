@@ -79,22 +79,66 @@ $(function() {
         });
 
         loadGoals(goal, $("#current-goals").length + 1)
+        
+    });
 
-    });
     
-    $("#btnUpdate").click(function() {
-        console.log("test");
+    
+    function loadGoals(goal, index) {
+       
+        $("#current-goals").append(`<div id=${index}></div>`);
+        $(`#${index}`).append(`<h3>${goal.name}</h3>`);
+        $(`#${index}`).append(`<h3>Target: ${goal.target} ${goal.unit} ${goal.frequency}</h3>`);
+        $(`#${index}`).append(`<h3>Current Progress: ${goal.progress} ${goal.unit} </h3> 
+        <progress id="goal-progress-bar" value=${goal.progress} max=${goal.target}></progress>`);
+        updateGoals(goal, index);
+       
+    }
+
+    function updateGoals(goal, index){
+        var button = document.createElement("BUTTON");
+        button.innerHTML="Update";
+        var input = document.createElement("input")
+        input.type='number';
+        input.id = 'addition'
+        input.classList.add('hide');
+        var confirm = document.createElement("BUTTON");
+        confirm.innerHTML="Confirm";
+        confirm.classList.add('hide');
+
+        $(`#${index}`).append(button, input, confirm);
+
+        button.addEventListener('click', e=>{
+            input.classList.remove('hide');
+            confirm.classList.remove('hide');
+        })
+
+        confirm.addEventListener('click', e=>{
+            const updateVal = document.getElementById('addition');
+            var add = input.value;
+            console.log(add);
+            input.classList.add('hide');
+            confirm.classList.add('hide');
+            userRef.get().then((doc) => {
+                var goals = doc.data().goals;
+                goals[index].progress = add;
+                
+            userRef.set({
+                goals: goals
+            });
+        });
+        
     });
+
+    }
+    
+   
+
+    
+    
 
 });
 
 
 
-function loadGoals(goal, index) {
-    $("#current-goals").append(`<div id=${index}></div>`);
-    $(`#${index}`).append(`<h3>${goal.name}</h3>`)
-    $(`#${index}`).append(`<h3>Target: ${goal.target} ${goal.unit} ${goal.frequency}</h3>`)
-    $(`#${index}`).append(`<h3>Current Progress: ${goal.progress} ${goal.unit} </h3> 
-    <progress id="goal-progress-bar" value=${goal.progress} max=${goal.target}></progress> 
-    <button id = "btnUpdate" name="btnUpdate"> Update </button>`)
-}
+
