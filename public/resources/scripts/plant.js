@@ -15,15 +15,21 @@ $(function() {
     var database = firebase.firestore();
 
     var userID = "0";
+    var profile;
 
     firebase.auth().onAuthStateChanged(user => {
         if(user) {
 
             database.collection("Users").doc(user.uid).get().then((doc) => {
                 if(doc.exists) {
-                    console.log(doc.data().name);
+                    profile = doc.data();
+                    console.log(profile.name);
+                    $("#user").text(profile.name);
+                    $("#streak").text("Streak: " + profile.streak);
                 }
             });
+            
+            
             
         }
         else if(!user){
