@@ -91,7 +91,7 @@ $(function() {
         $("#current-goals").append(`<div id=${index}></div>`);
         $(`#${index}`).append(`<h3>${goal.name}</h3>`);
         $(`#${index}`).append(`<h3>Target: ${goal.target} ${goal.unit} ${goal.frequency}</h3>`);
-        $(`#${index}`).append(`<h3>Current Progress: ${goal.progress} ${goal.unit} </h3> 
+        $(`#${index}`).append(`<h3 id="progressid">Current Progress: ${goal.progress} ${goal.unit} </h3> 
         <progress id="goal-progress-bar" value=${goal.progress} max=${goal.target}></progress>`);
         updateGoals(goal, index);
        
@@ -121,6 +121,14 @@ $(function() {
             console.log(add);
             input.classList.add('hide');
             confirm.classList.add('hide');
+            //$(`#${index}`).eq(3).replaceWith(`<div> <h3>Current Progress: ${add} ${goal.unit} </h3> 
+            //<progress id="goal-progress-bar" value=${add} max=${goal.target}></progress> </div>`);
+            $(`#${index}`).empty();
+            $(`#${index}`).append(`<h3>${goal.name}</h3>`);
+            $(`#${index}`).append(`<h3>Target: ${goal.target} ${goal.unit} ${goal.frequency}</h3>`);
+            $(`#${index}`).append(`<h3 id="progressid">Current Progress: ${add} ${goal.unit} </h3> 
+            <progress id="goal-progress-bar" value=${add} max=${goal.target}></progress>`);
+            $(`#${index}`).append(button, input, confirm);
             userRef.get().then((doc) => {
                 var goals = doc.data().goals;
                 goals[index].progress = add;
@@ -128,6 +136,8 @@ $(function() {
             userRef.update({
                 goals: goals
             });
+
+            
         });
         
     });
