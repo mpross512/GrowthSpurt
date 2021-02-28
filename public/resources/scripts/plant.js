@@ -18,12 +18,11 @@ $(function() {
                     profile = doc.data();
                     $("#current-goals").empty();
                     profile.goals.forEach(loadGoals)
-                    console.log(profile.name, " is logged in")
                     $(".page").hide();
                     $("#navbar").show();
                     $("#user-button").text(profile.name);
-                    $("#streak").text("Leaves: " + profile.streak);
-                    $(".plantImage img").attr("src", `resources/images/${profile.streak}leaves${profile.perfectWeek ? "" : "Brown"}.png`);
+                    $("#streak").text("Leaves: " + profile.leaves);
+                    $(".plantImage img").attr("src", `resources/images/${profile.leaves}leaves${profile.perfectWeek ? "" : "Brown"}.png`);
                     $("#remaining").text(`Days until next leaf: ${(profile.perfectWeek ? 8 : 15) - (new Date().getDay() == 0 ? 7 : new Date.getDay()) }`);
                     $("#plant-page").show();
                 }

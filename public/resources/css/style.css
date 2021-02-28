@@ -48,7 +48,6 @@ label, input, textarea, select {
 }
 
 #navbar a {
-    color: aliceblue;
     padding: 14px 16px;
     text-decoration: none;
     text-align: center;
@@ -99,7 +98,7 @@ label, input, textarea, select {
     text-align: center;
 }
 
-#goal-page > div {
+#new-goal > div {
     padding: 5px;
 }
 
