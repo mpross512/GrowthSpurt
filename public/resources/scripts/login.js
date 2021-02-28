@@ -53,16 +53,19 @@ $("#btnSignUpPage").click(function() {
     $("#signup-page").show();
 });
 
+$("#btnLoginPage").click(function() {
+    $("#signup-page").hide();
+    $("#login-page").show();
+})
+
 auth.onAuthStateChanged(firebaseUser => {
     if(firebaseUser){
-        console.log(firebaseUser);
-        console.log(`logged in ${newUser}`);
         if(newUser) {
             db.collection("Users").doc(firebaseUser.uid).set({
                 name: name,
                 streak: 0,
-                leaves: 0,
-                streakStart: new Date().toISOString()
+                leaves: 4,
+                perfectWeek: true
             })
             .then(() => {
                 console.log("Document successfully written!");
