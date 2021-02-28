@@ -8,23 +8,11 @@ window.onload = function() {
         messagingSenderId: "554230997796",
         appId: "1:554230997796:web:7fb9e3d67f79dba946c9b1",
         measurementId: "G-QG489YRBPY"
-    };
+    }
+
     
     firebase.initializeApp(firebaseConfig);
-/////////////////////////////////////////////////////////
-    var modal = document.getElementById('goalModal');
-    var btn = document.getElementById('btnAddGoal');
-    var span = document.getElementsByClassName('close')[0];
-
-    btn.onclick = function(){
-        modal.style.display = "block";
-    }
-
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-//////////////////////////////////////////////////
+//////////////////////////////////////////////////////
     const btnLogout = document.getElementById('btnLogout');
 
     btnLogout.addEventListener('click', e =>{
@@ -34,14 +22,20 @@ window.onload = function() {
             window.location.replace('login.html');
             console.log('not logged in');
             }
-        });
-    });
-//////////////////////////////////////////////////////
-
-const btnSaveGoal = document.getElementById('btnSaveGoal');
-
-btnSaveGoal.addEventListener('click', e =>{
-    
+        })
+    })
+///////////////////////////////////////////////////////
+var db = firebase.firestore();
+const title = document.getElementsByTagName('goalTitle');
+db.collection("Goals").doc(firebaseUser.uid).set({
+    name: title
+})
+.then(() => {
+    console.log("Document successfully written!");
+})
+.catch((error) => {
+    console.error("Error writing document: ", error);
 });
+
 
 };
