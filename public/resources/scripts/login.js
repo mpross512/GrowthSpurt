@@ -76,7 +76,9 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         if(newUser) {
             db.collection("Users").doc(firebaseUser.uid).set({
                 name: name,
-                streak: 0
+                streak: 0,
+                leaves: 0,
+                streakStart: new Date().toISOString()
             })
             .then(() => {
                 console.log("Document successfully written!");

@@ -26,6 +26,7 @@ $(function() {
                     console.log(profile.name);
                     $("#user").text(profile.name);
                     $("#streak").text("Streak: " + profile.streak);
+                    $("#remaining").text("Days until next leaf: " + Math.round(7 - (new Date().getTime() - new Date(profile.streakStart).getTime()) / (1000 * 3600 * 24)));
                 }
             });
             
