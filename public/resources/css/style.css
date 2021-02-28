@@ -28,7 +28,7 @@ button {
     padding: 10px 10px 10px 10px;
 }
 
-input, textarea, select {
+input, textarea, select, progress {
     background-color: #F3FFBD;
     color: #646881;
     border-style: solid;

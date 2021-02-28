@@ -72,10 +72,10 @@ function updateDailyGoals() {
             if(goals) {
                 for(var i = 0; i < goals.length; i++) {
                     if(goals[i].frequency == "daily") {
-                        if(perfectWeek && goals[i].current < goals[i].target) {
+                        if(perfectWeek && goals[i].progress < goals[i].target) {
                             perfectWeek = false;
                         }
-                        goals[i].current = 0;
+                        goals[i].progress = 0;
                     }
                 }
             }
@@ -104,10 +104,10 @@ function updateWeeklyGoals () {
             var perfectWeek = doc.data().perfectWeek;
             if(goals) {
                 for(var i = 0; i < goals.length; i++) {
-                    if(perfectWeek && goals[i].current < goals[i].target) {
+                    if(perfectWeek && goals[i].progress < goals[i].target) {
                         perfectWeek = false;
                     }
-                    goals[i].current = 0;
+                    goals[i].progress = 0;
                 }
             }
             if(perfectWeek && doc.data().leaves < 7) {
