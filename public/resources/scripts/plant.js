@@ -24,4 +24,15 @@ $(function() {
             window.location.replace('login.html');
         }
     });
+
+
+    $("#logout-button").click(function() {
+        auth.signOut();
+        auth.onAuthStateChanged(firebaseUser => {
+            if(!firebaseUser){
+            window.location.replace('login.html');
+            console.log('not logged in');
+            }
+        });
+    });
 });

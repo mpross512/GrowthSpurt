@@ -14,13 +14,7 @@ window.onload = function() {
     const btnLogout = document.getElementById('btnLogout');
 
     btnLogout.addEventListener('click', e =>{
-        auth.signOut();
-        auth.onAuthStateChanged(firebaseUser => {
-            if(!firebaseUser){
-            window.location.replace('login.html');
-            console.log('not logged in');
-            }
-        });
+        
     });
 
 const btnSaveGoal = document.getElementById('btnSaveGoal');
