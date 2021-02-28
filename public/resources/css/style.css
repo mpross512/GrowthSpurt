@@ -53,7 +53,12 @@ body {
     display: none;
 }
 
-.page {
+#plant-page, #login-page, #signup-page {
     text-align: center;
+}
+
+#current-goals div {
+    display: block;
+    padding: 14px;
 }
 

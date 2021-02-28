@@ -1,16 +1,20 @@
 $(function() {
 
-    var userID = "0";
     var profile;
+
+    var userRef;
 
     var firebaseUser;
 
     auth.onAuthStateChanged(user => {
         firebaseUser = user;
         if(user) {
-            db.collection("Users").doc(user.uid).get().then((doc) => {
+            userRef = db.collection("Users").doc(user.uid);
+            userRef.get().then((doc) => {
                 if(doc.exists) {
                     profile = doc.data();
+                    $("#current-goals").empty();
+                    profile.goals.forEach(loadGoals)
                     $(".page").hide();
                     $("#plant-page").show();
                     $("#navbar").show();
@@ -33,6 +37,10 @@ $(function() {
         }
     });
 
+    $("#dropdown").mouseleave(function() {
+        $("#dropdown-content").hide();
+    })
+
     $("#logout-button").click(function() {
         auth.signOut();
     });
@@ -52,4 +60,30 @@ $(function() {
         $("#goal-page").show();
     });
 
+    $("#btnSaveGoal").click(function() {
+
+        goal = {
+            name: $("#goal-name").val(),
+            unit: $("#goal-unit").val(), 
+            frequency: "week", 
+            current: 0, 
+            target: parseInt($("#goal-amount").val())
+        }
+
+        userRef.update({
+            goals: firebase.firestore.FieldValue.arrayUnion(goal)
+        });
+
+        loadGoals(goal, $("#current-goals").length + 1)
+
+    });
+
 });
+
+
+function loadGoals(goal, index) {
+    $("#current-goals").append(`<div id=${index}></div>`);
+    $(`#${index}`).append(`<h3>${goal.name}</h3>`)
+    $(`#${index}`).append(`<h3>Target: ${goal.target} ${goal.unit} ${goal.frequency}</h3>`)
+
+}

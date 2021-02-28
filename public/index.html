@@ -54,6 +54,11 @@
 
 
         <div id="goal-page" class="page hide">
+
+            <div id="current-goals">
+
+            </div>
+
             <button id="btnAddGoal">
                 New Goal
             </button>
@@ -70,9 +75,9 @@
                                 <option value="sleep">Sleep</option>
                             </select>
                             <label>Amount:</label>
-                            <input name="goalAmount" type="number">
+                            <input name="goalAmount" type="number" id="goal-amount">
                             <label>Unit:</label>
-                            <select name="goalUnit" id="">
+                            <select name="goalUnit" id="goal-unit">
                                 <option value="servings">servings</option>
                                 <option value="ounces">oz</option>
                                 <option value="hours">hrs</option>
@@ -80,7 +85,7 @@
                         </div>
                         <div>
                             <label>Title:</label>
-                            <input name="goalTitle" type="text">
+                            <input id="goal-name" name="goalTitle" type="text">
                             <label>More Detail:</label>
                             <textarea></textarea>
                         </div>

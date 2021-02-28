@@ -48,9 +48,9 @@ btnSignUp.addEventListener('click', e =>{
 
 });
 
-btnSignUpPage.addEventListener('click', e => {
-    loginDiv.classList.add("hide");
-    signupDiv.classList.remove("hide");
+$("#btnSignUpPage").click(function() {
+    $("#login-page").hide();
+    $("#signup-page").show();
 });
 
 auth.onAuthStateChanged(firebaseUser => {
