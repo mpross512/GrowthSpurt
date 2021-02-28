@@ -16,8 +16,8 @@ window.onload = function() {
     const btnLogout = document.getElementById('btnLogout');
 
     btnLogout.addEventListener('click', e =>{
-        firebase.auth().signOut();
-        firebase.auth().onAuthStateChanged(firebaseUser => {
+        auth.signOut();
+        auth.onAuthStateChanged(firebaseUser => {
             if(!firebaseUser){
             window.location.replace('login.html');
             console.log('not logged in');
