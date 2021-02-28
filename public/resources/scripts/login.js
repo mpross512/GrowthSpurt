@@ -61,8 +61,9 @@ auth.onAuthStateChanged(firebaseUser => {
             db.collection("Users").doc(firebaseUser.uid).set({
                 name: name,
                 streak: 0,
-                leaves: 0,
-                streakStart: new Date().toISOString()
+                leaves: 4,
+                streakStart: new Date().toISOString(),
+                perfectWeek: true
             })
             .then(() => {
                 console.log("Document successfully written!");

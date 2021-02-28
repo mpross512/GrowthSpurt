@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "updateWeeklyGoals": "node -e 'require(\"./index\").runWeeklyUpdate()'",
+    "updateDailyGoals": "node -e 'require(\"./index\").runDailyUpdate()'"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,8 @@
   "dependencies": {
     "firebase": "^8.2.9",
     "jquery": "^3.5.1",
-    "jsdom": "^16.4.0"
+    "jsdom": "^16.4.0",
+    "node-cron": "^2.0.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
