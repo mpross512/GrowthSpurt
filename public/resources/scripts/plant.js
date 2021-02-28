@@ -17,7 +17,9 @@ $(function() {
                 if(doc.exists) {
                     profile = doc.data();
                     $("#current-goals").empty();
-                    profile.goals.forEach(loadGoals)
+                    if(profile.goals) {
+                        profile.goals.forEach(loadGoals)
+                    }
                     $(".page").hide();
                     $("#navbar").show();
                     $("#user-button").text(profile.name);
