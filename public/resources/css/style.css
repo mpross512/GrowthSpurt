@@ -93,13 +93,13 @@ label, input, textarea, select {
     text-align: center;
 }
 
-#goalModal {
+#goal-page {
     width: 100%;
     margin: auto;
     text-align: center;
 }
 
-.modal-content > div {
+#goal-page > div {
     padding: 5px;
 }
 
