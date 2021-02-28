@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    color: #646881;
 }
 
 .page{
@@ -15,8 +16,31 @@ body {
     overflow-y: auto;
 }
 
+button {
+    border-radius: 5px;
+    background-color: #785964;
+    color: #D8F1A0;
+    border-style: none;
+    width: 160px;
+    height: 60px;
+    font-weight: 500;
+    font-size: x-large;
+    padding: 10px 10px 10px 10px;
+}
+
+input, textarea, select {
+    background-color: #F3FFBD;
+    color: #646881;
+    border-style: solid;
+}
+
+label, input, textarea, select {
+    font-size: x-large;
+    padding: 10px;
+}
+
 #navbar {
-    background-color: #F3C178;
+    background-color: #646881;
     overflow: hidden;
     margin: 0;
     padding: 0;
@@ -30,7 +54,7 @@ body {
     text-align: center;
     font-size: x-large;
     font-weight: 500;
-    color: #00A878;
+    color: #9ED0E6;
     display: inline-block;
 }
 
@@ -69,8 +93,33 @@ body {
     text-align: center;
 }
 
+#goalModal {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.modal-content > div {
+    padding: 5px;
+}
+
+#goal-amount {
+    width: 50px;
+}
+
+
 #current-goals div {
-    display: block;
+    display: inline-block;
     padding: 14px;
+    text-align: center;
+    width: 30%;
+}
+
+hr {
+    width: 70%;
+    color: #646881;
+    background-color: #646881;
+    height: 3px;
+    border-style: none;
 }
 
