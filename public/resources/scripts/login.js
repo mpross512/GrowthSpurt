@@ -53,6 +53,11 @@ $("#btnSignUpPage").click(function() {
     $("#signup-page").show();
 });
 
+$("#btnLoginPage").click(function() {
+    $("#signup-page").hide();
+    $("#login-page").show();
+})
+
 auth.onAuthStateChanged(firebaseUser => {
     if(firebaseUser){
         if(newUser) {
