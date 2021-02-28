@@ -5,14 +5,14 @@ body {
     padding: 0;
 }
 
-.navbar {
+#navbar {
     background-color: #F3C178;
     overflow: hidden;
     margin: 0;
     padding: 0;
 }
 
-.navbar a {
+#navbar a {
     color: aliceblue;
     padding: 14px 16px;
     text-decoration: none;
@@ -53,8 +53,7 @@ body {
     display: none;
 }
 
-#plant {
+.page {
     text-align: center;
 }
-
 

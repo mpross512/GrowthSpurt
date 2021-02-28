@@ -66,13 +66,13 @@ auth.onAuthStateChanged(firebaseUser => {
             })
             .then(() => {
                 console.log("Document successfully written!");
-                window.location.replace('index.html')
+                //window.location.replace('index.html')
             })
             .catch((error) => {
                 console.error("Error writing document: ", error);
             });
         } else {
-            window.location.replace('index.html')
+            //window.location.replace('index.html')
         }
     }
     else{
