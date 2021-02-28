@@ -55,14 +55,11 @@ $("#btnSignUpPage").click(function() {
 
 auth.onAuthStateChanged(firebaseUser => {
     if(firebaseUser){
-        console.log(firebaseUser);
-        console.log(`logged in ${newUser}`);
         if(newUser) {
             db.collection("Users").doc(firebaseUser.uid).set({
                 name: name,
                 streak: 0,
                 leaves: 4,
-                streakStart: new Date().toISOString(),
                 perfectWeek: true
             })
             .then(() => {

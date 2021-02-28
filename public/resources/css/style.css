@@ -3,6 +3,16 @@ body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+}
+
+.page{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    overflow-y: auto;
 }
 
 #navbar {
@@ -10,6 +20,7 @@ body {
     overflow: hidden;
     margin: 0;
     padding: 0;
+    height: 60px;
 }
 
 #navbar a {
@@ -17,7 +28,8 @@ body {
     padding: 14px 16px;
     text-decoration: none;
     text-align: center;
-    font-size: 42px;
+    font-size: x-large;
+    font-weight: 500;
     color: #00A878;
     display: inline-block;
 }

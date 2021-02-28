@@ -23,7 +23,8 @@ $(function() {
                     $("#user-button").text(profile.name);
                     $("#streak").text("Leaves: " + profile.streak);
                     $(".plantImage img").attr("src", `resources/images/${profile.streak}leaves${profile.perfectWeek ? "" : "Brown"}.png`);
-                    $("#remaining").text("Days until next leaf: " + Math.round(7 - (new Date().getTime() - new Date(profile.streakStart).getTime()) / (1000 * 3600 * 24)));
+                    $("#remaining").text(`Days until next leaf: ${profile.perfectWeek ? 8 - (7 - new Date().getDay()) : 15 - (7 - new Date().getDay())}`);
+                    //console.log(profile.perfectWeek ? 8 - (7 - new Date().getDay()) : 15 - (7 - new Date().getDay()) );
                     $("#plant-page").show();
                 }
             });
