@@ -18,6 +18,7 @@ $(function() {
                     profile = doc.data();
                     $("#current-goals").empty();
                     profile.goals.forEach(loadGoals)
+                    console.log(profile.name, " is logged in")
                     $(".page").hide();
                     $("#navbar").show();
                     $("#user-button").text(profile.name);
@@ -131,7 +132,7 @@ $(function() {
                 var goals = doc.data().goals;
                 goals[index].progress = add;
                 
-            userRef.set({
+            userRef.update({
                 goals: goals
             });
 
