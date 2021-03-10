@@ -54,11 +54,11 @@ const server = http.createServer((req, res) => {
 
 })
 
-cron.schedule('*/5 * * * *', () => {
+cron.schedule('0 2 * * *', () => {
     console.log("Updating daily goals...");
     updateDailyGoals();
 });
-cron.schedule('* 3 * * 1', () => {
+cron.schedule('0 3 * * 1', () => {
     console.log("Updating weekly goals...");
     updateWeeklyGoals
 });
