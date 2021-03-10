@@ -88,8 +88,8 @@ $(function() {
     
     
     function loadGoals(goal, index) {
-        console.log(index);
-        console.log($("#current-goals").children().length);
+        //console.log(index);
+        //console.log($("#current-goals").children().length);
         $("#current-goals").append(`<div id=${index}></div>`);
         $(`#${index}`).append(`<h3>${goal.name}</h3>`);
         $(`#${index}`).append(`<h3>Target: ${goal.target} ${goal.unit} ${goal.frequency}</h3>`);
