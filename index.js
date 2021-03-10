@@ -54,8 +54,14 @@ const server = http.createServer((req, res) => {
 
 })
 
-cron.schedule('* * 2 * * *', updateDailyGoals);
-cron.schedule('* * 3 * * 1', updateWeeklyGoals);
+cron.schedule('* 0 * * * *', () => {
+    console.log("Updating daily goals...");
+    updateDailyGoals();
+});
+cron.schedule('* * 3 * * 1', () => {
+    console.log("Updating weekly goals...");
+    updateWeeklyGoals
+});
 
 server.listen(process.env.PORT || 3000);
 
