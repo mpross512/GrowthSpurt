@@ -80,14 +80,16 @@ $(function() {
             goals: firebase.firestore.FieldValue.arrayUnion(goal)
         });
 
-        loadGoals(goal, $("#current-goals").length + 1)
+        loadGoals(goal, $("#current-goals").children().length)
+        //updateGoals(goal, $("#current-goals").children().length + 1);
         
     });
 
     
     
     function loadGoals(goal, index) {
-       
+        console.log(index);
+        console.log($("#current-goals").children().length);
         $("#current-goals").append(`<div id=${index}></div>`);
         $(`#${index}`).append(`<h3>${goal.name}</h3>`);
         $(`#${index}`).append(`<h3>Target: ${goal.target} ${goal.unit} ${goal.frequency}</h3>`);
@@ -126,6 +128,7 @@ $(function() {
             confirm.classList.add('hide');
             
             $(`#${index}`).empty();
+           // $("#current-goals").append(`<div id=${index}></div>`);
             $(`#${index}`).append(`<h3>${goal.name}</h3>`);
             $(`#${index}`).append(`<h3>Target: ${goal.target} ${goal.unit} ${goal.frequency}</h3>`);
             $(`#${index}`).append(`<h3 id="progressid">Current Progress: ${add} ${goal.unit} </h3> 
@@ -133,8 +136,8 @@ $(function() {
             $(`#${index}`).append(`<br></br>`, button, input, confirm);
             userRef.get().then((doc) => {
                 var goals = doc.data().goals;
+                console.log(index);
                 goals[index].progress = add;
-                
             userRef.update({
                 goals: goals
             });
