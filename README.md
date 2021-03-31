@@ -2,6 +2,8 @@
 
 Game-ify eating healthy!
 
+Visit at https://growthspurt.space
+
 ## Inspiration
 
 Our team has a hard time eating healthy, and we know a lot of other college students do too. In order to try and make this a little easier and more incentivizing, we decided to turn eating healthy into a game to try and give people a little extra push to follow through with healthy eating habits.
